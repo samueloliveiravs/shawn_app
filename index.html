@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form>
+        <label for="">asdasd</label>
+      <input type="text" id="nome" name="nome" onchange="salvarDados()" />
+      <input type="email" id="email" name="email" />
+    </form>
+    <button onclick="salvarDados()">Clique Aqui</button>
+  </body>
+  <script>
+    function salvarDados() {
+      let nome = document.getElementById("email").value;
+      console.log(nome);
+    }
+  </script>
+</html>
