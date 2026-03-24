@@ -26,18 +26,51 @@ class _ShawHomeState extends State<ShawHome> {
         title: Text("ShawApp", style: GoogleFonts.acme()),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
-      body: Center(
+      body: Container(
+        width: double.infinity,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              "Vezes que apertou o botão:",
-              style: GoogleFonts.acme(fontSize: 40),
+            Expanded(
+              flex: 1,
+              child: Container(
+                width: double.infinity,
+                color: Colors.red,
+                child: Text("Shawn", style: TextStyle(fontSize: 30)),
+              ),
             ),
-            Text("$contador", style: TextStyle(fontSize: 40)),
-            Text(text, style: TextStyle(fontSize: 40)),
-            TextField(controller: fiel),
-            ElevatedButton(onPressed: () {}, child: Text("Shaw")),
+            Expanded(
+              flex: 2,
+              child: Container(
+                margin: EdgeInsets.all(10),
+                width: double.infinity,
+                color: Colors.green,
+                child: Text("Software", style: TextStyle(fontSize: 30)),
+              ),
+            ),
+            Expanded(
+              flex: 2,
+              child: Container(
+                width: double.infinity,
+                color: Colors.amber,
+                child: Text("Noturno", style: TextStyle(fontSize: 30)),
+              ),
+            ),
+            Row(
+              children: [
+                Container(
+                  color: Colors.red,
+                  child: Text("Shawn", style: TextStyle(fontSize: 30)),
+                ),
+                Container(
+                  color: Colors.green,
+                  child: Text("Software", style: TextStyle(fontSize: 30)),
+                ),
+                Container(
+                  color: Colors.amber,
+                  child: Text("Noturno", style: TextStyle(fontSize: 30)),
+                ),
+              ],
+            ),
           ],
         ),
       ),

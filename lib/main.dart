@@ -6,10 +6,10 @@ import 'package:shawn_app/shaw_app_debug.dart';
 import 'shaw_app.dart';
 
 Future<void> main() async {
-  runApp(SplashScreen());
+  //runApp(SplashScreen());
 
   WidgetsFlutterBinding.ensureInitialized();
   //SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
-  await Future.delayed(Duration(seconds: 20));
+  //await Future.delayed(Duration(seconds: 20));
   runApp(ShawAppDebug());
 }
