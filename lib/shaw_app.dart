@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shawn_app/pages/shaw_home.dart';
+import 'package:shawn_app/pages/login_page.dart';
 
 class ShawApp extends StatelessWidget {
   const ShawApp({super.key});
@@ -7,7 +7,7 @@ class ShawApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: ShawHome(),
+      home: LoginPage(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
     );
