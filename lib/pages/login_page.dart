@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shawn_app/pages/shaw_home.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -9,34 +10,43 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final _formState = GlobalKey<FormState>();
+  var emailController = TextEditingController();
 
   void _login() {
-    if (_formState.currentState!.validate()) {}
+    if (_formState.currentState!.validate()) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => ShawHome(email: emailController.text),
+        ),
+      );
+    }
     setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: SingleChildScrollView(
-        child: Scaffold(
-          body: Container(
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 60),
-            decoration: BoxDecoration(
-              color: Colors.red,
-              image: DecorationImage(
-                image: NetworkImage(
-                  "https://www.somosicev.com/wp-content/uploads/2022/11/FACHADA.jpg",
-                ),
-                fit: BoxFit.cover,
+      child: Scaffold(
+        body: Container(
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 60),
+          decoration: BoxDecoration(
+            color: Colors.red,
+            image: DecorationImage(
+              image: NetworkImage(
+                "https://www.somosicev.com/wp-content/uploads/2022/11/FACHADA.jpg",
               ),
+              fit: BoxFit.cover,
             ),
-            child: Container(
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 219, 219, 219),
-                borderRadius: BorderRadius.circular(10),
-              ),
+          ),
+          child: Container(
+            width: double.infinity,
+            height: double.infinity,
+            decoration: BoxDecoration(
+              color: const Color.fromARGB(255, 219, 219, 219),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: SingleChildScrollView(
               child: Column(
                 children: [
                   Container(
@@ -65,6 +75,7 @@ class _LoginPageState extends State<LoginPage> {
                             horizontal: 20,
                           ),
                           child: TextFormField(
+                            controller: emailController,
                             decoration: InputDecoration(
                               labelText: "Email",
                               border: OutlineInputBorder(),
@@ -139,11 +150,11 @@ class _LoginPageState extends State<LoginPage> {
               ),
             ),
           ),
-          floatingActionButton: FloatingActionButton(
-            onPressed: () {},
-            backgroundColor: Colors.grey,
-            child: Icon(Icons.question_mark_outlined),
-          ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          backgroundColor: Colors.grey,
+          child: Icon(Icons.question_mark_outlined),
         ),
       ),
     );

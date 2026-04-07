@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ShawHome extends StatefulWidget {
-  const ShawHome({super.key});
+  final String email;
+  const ShawHome({super.key, required this.email});
 
   @override
   State<ShawHome> createState() => _ShawHomeState();
@@ -44,7 +45,7 @@ class _ShawHomeState extends State<ShawHome> {
                 margin: EdgeInsets.all(10),
                 width: double.infinity,
                 color: Colors.green,
-                child: Text("Software", style: TextStyle(fontSize: 30)),
+                child: Text(widget.email, style: TextStyle(fontSize: 30)),
               ),
             ),
             Expanded(
@@ -75,7 +76,9 @@ class _ShawHomeState extends State<ShawHome> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: aumentarContador,
+        onPressed: () {
+          Navigator.pop(context);
+        },
         child: Icon(Icons.gamepad),
       ),
     );
