@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shawn_app/pages/login_page.dart';
+import 'package:shawn_app/routes/app_pages.dart';
+import 'package:shawn_app/routes/app_routes.dart';
 
 class ShawApp extends StatelessWidget {
   const ShawApp({super.key});
@@ -7,7 +8,8 @@ class ShawApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: LoginPage(),
+      initialRoute: AppRoutes.home,
+      routes: AppPages.routes,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
     );

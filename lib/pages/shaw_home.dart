@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shawn_app/models/usuario.dart';
 
 class ShawHome extends StatefulWidget {
-  final String email;
-  const ShawHome({super.key, required this.email});
+  const ShawHome({super.key});
 
   @override
   State<ShawHome> createState() => _ShawHomeState();
@@ -22,12 +22,14 @@ class _ShawHomeState extends State<ShawHome> {
 
   @override
   Widget build(BuildContext context) {
+    var argumentos = ModalRoute.of(context)!.settings.arguments as Usuario;
+
     return Scaffold(
       appBar: AppBar(
         title: Text("ShawApp", style: GoogleFonts.acme()),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
-      body: Container(
+      body: SizedBox(
         width: double.infinity,
         child: Column(
           children: [
@@ -45,7 +47,7 @@ class _ShawHomeState extends State<ShawHome> {
                 margin: EdgeInsets.all(10),
                 width: double.infinity,
                 color: Colors.green,
-                child: Text(widget.email, style: TextStyle(fontSize: 30)),
+                child: Text(argumentos.nome, style: TextStyle(fontSize: 30)),
               ),
             ),
             Expanded(
@@ -53,7 +55,10 @@ class _ShawHomeState extends State<ShawHome> {
               child: Container(
                 width: double.infinity,
                 color: Colors.amber,
-                child: Text("Noturno", style: TextStyle(fontSize: 30)),
+                child: Text(
+                  "${argumentos.idade}",
+                  style: TextStyle(fontSize: 30),
+                ),
               ),
             ),
             Row(

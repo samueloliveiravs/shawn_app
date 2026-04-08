@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:shawn_app/pages/shaw_home.dart';
+import 'package:shawn_app/models/usuario.dart';
+import 'package:shawn_app/routes/app_routes.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -14,11 +15,10 @@ class _LoginPageState extends State<LoginPage> {
 
   void _login() {
     if (_formState.currentState!.validate()) {
-      Navigator.push(
+      Navigator.pushReplacementNamed(
         context,
-        MaterialPageRoute(
-          builder: (context) => ShawHome(email: emailController.text),
-        ),
+        AppRoutes.dashboard,
+        arguments: Usuario(nome: emailController.text, idade: 40),
       );
     }
     setState(() {});
