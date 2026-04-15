@@ -8,7 +8,7 @@ class ShawApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: AppRoutes.materias,
+      initialRoute: AppRoutes.estado,
       routes: AppPages.routes,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),

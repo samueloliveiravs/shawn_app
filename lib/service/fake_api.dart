@@ -1,6 +1,7 @@
 class FakeApi {
   Future<List<String>> fechApi() async {
     await Future.delayed(Duration(seconds: 2));
+    //throw Exception("Falha ao conectar na api");
 
     final List<String> fatos = [
       "Polvos têm três corações.",
