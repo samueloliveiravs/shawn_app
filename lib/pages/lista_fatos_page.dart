@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:shawn_app/controllers/fake_api_controller.dart';
+import 'package:shawn_app/controllers/theme_controller.dart';
 
 class ListaFatosPage extends StatelessWidget {
   ListaFatosPage({super.key});
@@ -9,6 +11,8 @@ class ListaFatosPage extends StatelessWidget {
   // @override
   @override
   Widget build(BuildContext context) {
+    final themeController = context.watch<ThemeController>();
+
     return ListenableBuilder(
       listenable: contollerApi,
       builder: (context, _) {
@@ -44,8 +48,18 @@ class ListaFatosPage extends StatelessWidget {
         }
         return Scaffold(
           appBar: AppBar(
-            title: Text("Gerenciamento de Estado"),
+            title: Text("Gerenciamento"),
             backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+            actions: [
+              Icon(Icons.light_mode),
+              Switch(
+                value: themeController.isDark,
+                onChanged: (_) {
+                  themeController.trocarTema();
+                },
+              ),
+              Icon(Icons.dark_mode),
+            ],
           ),
           body: body,
         );

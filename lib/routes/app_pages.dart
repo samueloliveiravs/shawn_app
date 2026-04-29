@@ -3,6 +3,7 @@ import 'package:shawn_app/pages/lista_fatos_page.dart';
 import 'package:shawn_app/pages/login_page.dart';
 import 'package:shawn_app/pages/materias_page.dart';
 import 'package:shawn_app/pages/shaw_home.dart';
+import 'package:shawn_app/pages/todos_page.dart';
 import 'package:shawn_app/routes/app_routes.dart';
 
 class AppPages {
@@ -11,5 +12,6 @@ class AppPages {
     AppRoutes.dashboard: (context) => ShawHome(),
     AppRoutes.materias: (context) => MateriasPage(),
     AppRoutes.estado: (context) => ListaFatosPage(),
+    AppRoutes.todos: (context) => TodosPage(),
   };
 }

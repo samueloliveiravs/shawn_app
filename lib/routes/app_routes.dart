@@ -3,4 +3,5 @@ class AppRoutes {
   static const String dashboard = "/dashboard";
   static const String materias = "/materias";
   static const String estado = "/estado";
+  static const String todos = "/todos";
 }
