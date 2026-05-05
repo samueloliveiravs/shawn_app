@@ -12,7 +12,7 @@ class ShawApp extends StatelessWidget {
     var themeController = context.watch<ThemeController>();
 
     return MaterialApp(
-      initialRoute: AppRoutes.estado,
+      initialRoute: AppRoutes.media,
       routes: AppPages.routes,
       debugShowCheckedModeBanner: false,
       theme: themeController.isDark ? ThemeData.dark() : ThemeData.light(),
