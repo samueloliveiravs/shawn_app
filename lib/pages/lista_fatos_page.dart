@@ -3,10 +3,17 @@ import 'package:provider/provider.dart';
 import 'package:shawn_app/controllers/fake_api_controller.dart';
 import 'package:shawn_app/controllers/theme_controller.dart';
 
-class ListaFatosPage extends StatelessWidget {
-  ListaFatosPage({super.key});
+class ListaFatosPage extends StatefulWidget {
+  const ListaFatosPage({super.key});
 
+  @override
+  State<ListaFatosPage> createState() => _ListaFatosPageState();
+}
+
+class _ListaFatosPageState extends State<ListaFatosPage> {
   final contollerApi = FakeApiController();
+
+  bool isPressed = false;
 
   // @override
   @override
@@ -18,9 +25,13 @@ class ListaFatosPage extends StatelessWidget {
       builder: (context, _) {
         Widget body = Container();
         if (contollerApi.isLoading) {
-          body = Center(child: CircularProgressIndicator());
+          body = Center(
+            key: ValueKey("Carregando"),
+            child: CircularProgressIndicator(),
+          );
         } else if (contollerApi.error.isNotEmpty) {
           body = Center(
+            key: ValueKey("TentarNovamente"),
             child: Column(
               children: [
                 Text(contollerApi.error),
@@ -33,9 +44,27 @@ class ListaFatosPage extends StatelessWidget {
           );
         } else if (contollerApi.dados.isEmpty) {
           body = Center(
-            child: ElevatedButton(
-              onPressed: contollerApi.getData,
-              child: Text("Carregar Dados"),
+            key: ValueKey("CarregarDados"),
+            child: GestureDetector(
+              onTapDown: (details) {
+                isPressed = true;
+                print(isPressed);
+              },
+              onTapUp: (details) {
+                isPressed = false;
+                print(isPressed);
+              },
+              onTapCancel: () {
+                isPressed = false;
+              },
+              child: AnimatedScale(
+                duration: Duration(milliseconds: 200),
+                scale: isPressed ? 0.5 : 1,
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: Text("Carregar Dados"),
+                ),
+              ),
             ),
           );
         } else {
@@ -61,7 +90,10 @@ class ListaFatosPage extends StatelessWidget {
               Icon(Icons.dark_mode),
             ],
           ),
-          body: body,
+          body: AnimatedSwitcher(
+            duration: Duration(milliseconds: 300),
+            child: body,
+          ),
         );
       },
     );
