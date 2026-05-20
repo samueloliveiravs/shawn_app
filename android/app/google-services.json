@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1044884859195",
+    "project_id": "flutter-shaw-app",
+    "storage_bucket": "flutter-shaw-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1044884859195:android:c5f9e12a9ff2115d7daf1e",
+        "android_client_info": {
+          "package_name": "com.example.shawn_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1044884859195-ah2qiql8j8att506gk0via6ebpl6mr00.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4ihvRM1Uzieo1u2NNZxOWLN0Pzo2sfOQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1044884859195-ah2qiql8j8att506gk0via6ebpl6mr00.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

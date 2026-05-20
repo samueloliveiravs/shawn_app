@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:shawn_app/models/usuario.dart';
 import 'package:shawn_app/routes/app_routes.dart';
@@ -10,15 +11,36 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final auth = FirebaseAuth.instance;
+
   final _formState = GlobalKey<FormState>();
   var emailController = TextEditingController();
+  var senhaController = TextEditingController();
+  var nomeController = TextEditingController();
 
-  void _login() {
+  Future<void> _login() async {
     if (_formState.currentState!.validate()) {
+      try {
+        await auth.createUserWithEmailAndPassword(
+          email: emailController.text,
+          password: senhaController.text,
+        );
+
+        await auth.currentUser?.updateDisplayName(nomeController.text);
+
+        Navigator.pushReplacementNamed(
+          context,
+          AppRoutes.dashboard,
+          arguments: Usuario(nome: auth.currentUser!.displayName!, idade: 40),
+        );
+      } on FirebaseAuthException catch (e) {
+        print(e.message);
+      }
+    } else {
       Navigator.pushReplacementNamed(
         context,
         AppRoutes.dashboard,
-        arguments: Usuario(nome: emailController.text, idade: 40),
+        arguments: Usuario(nome: auth.currentUser!.displayName!, idade: 40),
       );
     }
     setState(() {});
@@ -104,6 +126,7 @@ class _LoginPageState extends State<LoginPage> {
                             horizontal: 20,
                           ),
                           child: TextFormField(
+                            controller: senhaController,
                             decoration: InputDecoration(
                               labelText: "Senha",
                               filled: true,
@@ -118,6 +141,33 @@ class _LoginPageState extends State<LoginPage> {
 
                               if (value.length < 6) {
                                 return "Senha muito curta";
+                              }
+
+                              return null;
+                            },
+                          ),
+                        ),
+                        Container(
+                          padding: EdgeInsets.symmetric(
+                            vertical: 10,
+                            horizontal: 20,
+                          ),
+                          child: TextFormField(
+                            controller: nomeController,
+                            decoration: InputDecoration(
+                              labelText: "Nome",
+                              filled: true,
+                              hoverColor: Colors.blueAccent,
+                              border: OutlineInputBorder(),
+                              prefixIcon: Icon(Icons.lock),
+                            ),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return "O campo não pode ficar vazio";
+                              }
+
+                              if (value.length < 3) {
+                                return "Nome muito curto";
                               }
 
                               return null;

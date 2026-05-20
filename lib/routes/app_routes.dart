@@ -7,4 +7,6 @@ class AppRoutes {
   static const String media = "/media";
   static const String heroPage = "/heroPage";
   static const String locPage = "/locPage";
+  static const String wellcome = "/wellcome";
+  static const String login = "/login";
 }

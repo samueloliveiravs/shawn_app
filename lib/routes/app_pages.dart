@@ -7,6 +7,7 @@ import 'package:shawn_app/pages/media_page.dart';
 import 'package:shawn_app/pages/pegar_localizacao.dart';
 import 'package:shawn_app/pages/shaw_home.dart';
 import 'package:shawn_app/pages/todos_page.dart';
+import 'package:shawn_app/pages/wellcome_page.dart';
 import 'package:shawn_app/routes/app_routes.dart';
 
 class AppPages {
@@ -19,5 +20,7 @@ class AppPages {
     AppRoutes.media: (context) => MediaPage(),
     AppRoutes.heroPage: (context) => HeroPage(),
     AppRoutes.locPage: (context) => PegarLocalizacao(),
+    AppRoutes.wellcome: (context) => WellcomePage(),
+    AppRoutes.login: (context) => LoginPage(),
   };
 }

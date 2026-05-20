@@ -1,0 +1,17 @@
+{
+  "apptitle": "Bem-Vindo",
+  "wellcome": "Seja bem-vindo ao Shawn App",
+  "options": "Escolha uma opção",
+
+  "logic": "Lógica Computacional",
+  "oop": "POO",
+  "data_structures": "Estrutura de Dados",
+  "algorithms": "Algoritmos",
+  "discrete_math": "Matemática Discreta",
+  "operations_research": "Pesquisa Operacional",
+  "database": "Banco de Dados",
+
+  "morning": "Matutino",
+  "afternoon": "Vespertino",
+  "night": "Noturno"
+}

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:shawn_app/models/aula.dart';
 import 'package:shawn_app/shared/widgets/card_materias.dart';
@@ -16,13 +17,13 @@ class MateriasPage extends StatelessWidget {
   // ];
 
   final materias = [
-    Aula(materia: "Logica Computacional", turno: "Matutino"),
-    Aula(materia: "POO", turno: "Noturno"),
-    Aula(materia: "Estrutura de Dados", turno: "Matutino"),
-    Aula(materia: "Algoritmos", turno: "Vespertino"),
-    Aula(materia: "Matematica Indiscreta", turno: "Verspertino"),
-    Aula(materia: "Pesquisa Operacional", turno: "Noturno"),
-    Aula(materia: "Banco de Dados", turno: "Noturno"),
+    Aula(materia: "logic".tr(), turno: "morning".tr()),
+    Aula(materia: "oop".tr(), turno: "night".tr()),
+    Aula(materia: "data_structures".tr(), turno: "morning".tr()),
+    Aula(materia: "algorithms".tr(), turno: "afternoon".tr()),
+    Aula(materia: "discrete_math".tr(), turno: "afternoon".tr()),
+    Aula(materia: "operations_research".tr(), turno: "night".tr()),
+    Aula(materia: "database".tr(), turno: "night".tr()),
   ];
 
   @override

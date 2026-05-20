@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shawn_app/models/usuario.dart';
+import 'package:shawn_app/routes/app_routes.dart';
 
 class ShawHome extends StatefulWidget {
   const ShawHome({super.key});
@@ -10,6 +12,8 @@ class ShawHome extends StatefulWidget {
 }
 
 class _ShawHomeState extends State<ShawHome> {
+  final auth = FirebaseAuth.instance;
+
   int contador = 0;
   var fiel = TextEditingController();
   String text = "";
@@ -82,7 +86,8 @@ class _ShawHomeState extends State<ShawHome> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pop(context);
+          auth.signOut();
+          Navigator.pushNamed(context, AppRoutes.login);
         },
         child: Icon(Icons.gamepad),
       ),
